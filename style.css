@@ -1,48 +1,50 @@
 * {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 body {
     background-color: #00acee;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
-    /* background: #eaeaea; */
     width: 40%;
     min-width: 400px;
     margin: 40px auto;
     padding: 20px;
-    /* border: 2px solid #b7b7b7; */
     border-radius: 8px;
 }
 
 h1 {
-    font-weight: 500;
+    font-family: 'Noto Serif Lao', serif;
+    font-weight: 800;
     text-align: center;
     margin-bottom: 20px;
 }
 
 .newtask-cont {
     background-color: #f6f6f6;
+    box-shadow: 0 4px 6px #2d2b2b4d;
     border-radius: 6px;
     padding: 10px 16px;
-    margin-bottom: 20px;
+    margin-bottom: 38px;
 }
 
 .newtask-cont input {
     background: none;
-    /* background-color: #f6f6f6; */
     border: none;
     border-bottom: 2px solid #dcd8d8;
     font-size: 16px;
     height: 40px;
-    /* width: 340px; */
     width: 75%;
     padding: 8px;
-  
+}
+
+::placeholder {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
 }
 
 .newtask-cont input:focus {
@@ -65,6 +67,7 @@ h1 {
 
 #tasks-list {
     background-color: #f6f6f6;
+    box-shadow: 0 4px 6px #2d2b2b4d;
     border: none;
     border-radius: 6px;
     padding: 10px 16px;
@@ -76,11 +79,16 @@ h1 {
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid #dcd8d8;
-    /* width: 90%; */
+    align-items: center;
     font-size: 16px;
-    height: 40px;
-    padding: 8px;
-    margin: 20px 0;
+    margin: 12px 0;
+}
+
+li .p-text {
+    word-wrap: break-word;
+    max-width: 80%;
+    padding: 6px 10px 6px 0;
+    outline: none;
 }
 
 .edit-button, .icon-button {
@@ -91,7 +99,7 @@ h1 {
 
 .edit-button {
     background: #00acee;
-    margin-right: 10px;
+    margin-right: 12px;
 }
 
 .fa-regular {
@@ -102,3 +110,4 @@ h1 {
 .icon-button {
     background: #ca212a;
 }
+

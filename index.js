@@ -9,10 +9,21 @@ let todoList = JSON.parse(localStorage.getItem("todoList")) || [];
 // Function to render the todo list
 function renderTodoList() {
     const list = document.getElementById("tasks-list");
+
+    // Only render the list if there are tasks
+    if (todoList.length === 0) {
+        list.style.display = "none";
+        return;
+    } else {
+        list.style.display = "block";
+    }
+
     list.innerHTML = "";
 
     // Render the todo list items
-    todoList.forEach((task) => {
+    for (let i = todoList.length - 1; i >= 0; i--) {
+        const task = todoList[i];
+
         const listItem = document.createElement("li");
         listItem.classList.add('li-item');
 
@@ -29,7 +40,7 @@ function renderTodoList() {
         const editButton = document.createElement('button');
         editButton.classList.add('edit-button');
         editButton.innerHTML = '<i class="fa-regular fa-pen-to-square">';
-        editButton.onclick = () => editTask(task);
+        editButton.onclick = () => editTask(taskText);
 
         // Create a delete button for each item
         const deleteButton = document.createElement('button');
@@ -44,8 +55,8 @@ function renderTodoList() {
         listItem.appendChild(taskText);
         listItem.appendChild(buttonsDiv);
 
-        list.insertBefore(listItem, list.childNodes[0]);
-    });
+        list.insertBefore(listItem, list.firstChild);
+    }
 }
 
 // Function to add a new task to the todo list
@@ -70,15 +81,51 @@ function addTask() {
     renderTodoList();
 }
 
-// Function to edit a task in the todo list
-function editTask(task) {
-    const index = todoList.indexOf(task);
-    const newTask = prompt("Edit task:", task);
+// Function to edit & save a task in the to do list
+function editTask(taskTextElement) {
+    const index = todoList.findIndex((task) => task === taskTextElement.textContent.trim());
 
-    if (newTask !== null && newTask !== "") {
-        todoList[index] = newTask;
-        renderTodoList();
-    }
+    taskTextElement.contentEditable = true;
+    taskTextElement.focus();
+
+    const saveEdit = () => {
+        const newTask = taskTextElement.textContent.trim();
+
+        if (newTask !== "") {
+            todoList[index] = newTask;
+            renderTodoList();
+
+            // Save the updated todoList array to local storage
+            localStorage.setItem('todoList', JSON.stringify(todoList));
+        } else {
+            taskTextElement.textContent = task;
+        }
+
+        taskTextElement.contentEditable = false;
+        taskTextElement.removeEventListener('blur', saveEdit);
+        document.removeEventListener('keydown', handleKeydown);
+
+        editButton.style.display = 'none';
+    };
+
+    const handleKeydown = (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            saveEdit();
+        }
+    };
+
+    const editButton = document.createElement('button');
+    editButton.innerText = "Save";
+    editButton.addEventListener('click', saveEdit);
+    editButton.style.display = 'none'; // Hide the button by default
+    taskTextElement.parentElement.appendChild(editButton);
+
+    taskTextElement.addEventListener('blur', saveEdit);
+    taskTextElement.addEventListener('input', () => {
+        // editButton.style.display = 'inline-block'; // Show the button when text is changed
+    });
+    document.addEventListener('keydown', handleKeydown);
 }
 
 // Function to remove/delete a task from the todo list
