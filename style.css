@@ -10,26 +10,26 @@ body {
 }
 
 .container {
-    width: 40%;
-    min-width: 400px;
-    margin: 40px auto;
-    padding: 20px;
     border-radius: 8px;
+    margin: 40px auto;
+    min-width: 400px;
+    padding: 20px;
+    width: 40%;
 }
 
 h1 {
     font-family: 'Noto Serif Lao', serif;
     font-weight: 800;
-    text-align: center;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .newtask-cont {
     background-color: #f6f6f6;
-    box-shadow: 0 4px 6px #2d2b2b4d;
     border-radius: 6px;
-    padding: 10px 16px;
+    box-shadow: 0 4px 6px #2d2b2b4d;
     margin-bottom: 38px;
+    padding: 10px 16px;
 }
 
 .newtask-cont input {
@@ -38,8 +38,12 @@ h1 {
     border-bottom: 2px solid #dcd8d8;
     font-size: 16px;
     height: 40px;
-    width: 75%;
     padding: 8px;
+    width: 75%;
+}
+
+.newtask-cont input:focus {
+    outline: none;
 }
 
 ::placeholder {
@@ -47,48 +51,44 @@ h1 {
     font-weight: 600;
 }
 
-.newtask-cont input:focus {
-    outline: none;
-}
-
 #add-button{
-    font-size: 16px;
-    padding: 8px;
+    background: #00acee;
     border: none;
     border-radius: 6px;
-    width: 20%;
-    float: right;
-    height: 40px;
-    cursor: pointer;
-    outline: none;
-    background: #00acee;
     color: #f6f6f6;
+    cursor: pointer;
+    float: right;
+    font-size: 16px;
+    height: 40px;
+    outline: none;
+    padding: 8px;
+    width: 20%;   
 }
 
 #tasks-list {
     background-color: #f6f6f6;
-    box-shadow: 0 4px 6px #2d2b2b4d;
     border: none;
     border-radius: 6px;
-    padding: 10px 16px;
+    box-shadow: 0 4px 6px #2d2b2b4d;
     list-style: none;
     margin-top: 20px;
+    padding: 10px 16px;
 }
 
 #tasks-list li {
     display: flex;
-    justify-content: space-between;
-    border-bottom: 2px solid #dcd8d8;
     align-items: center;
+    border-bottom: 2px solid #dcd8d8;
     font-size: 16px;
+    justify-content: space-between;
     margin: 12px 0;
 }
 
 li .p-text {
-    word-wrap: break-word;
     max-width: 80%;
-    padding: 6px 10px 6px 0;
     outline: none;
+    padding: 6px 10px 6px 0;
+    word-wrap: break-word;
 }
 
 .edit-button, .icon-button {
@@ -101,13 +101,14 @@ li .p-text {
     background: #00acee;
     margin-right: 12px;
 }
+.icon-button {
+    background: #ca212a;
+}
 
 .fa-regular {
     color: white;
     font-size: 14px;
 }
 
-.icon-button {
-    background: #ca212a;
-}
+
 
