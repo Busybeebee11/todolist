@@ -88,6 +88,15 @@ function editTask(taskTextElement) {
     taskTextElement.contentEditable = true;
     taskTextElement.focus();
 
+    const textLength = taskTextElement.textContent.length;
+
+    // Move the text cursor to the end of the taskTextElement
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.selectAllChildren(taskTextElement);
+    selection.collapseToEnd();
+    selection.extend(taskTextElement.firstChild, textLength);
+
     const saveEdit = () => {
         const newTask = taskTextElement.textContent.trim();
 
