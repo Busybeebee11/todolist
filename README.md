@@ -17,6 +17,8 @@ Submit the following:
 - A link to the GitHub repository containing your solution 
 - A link to your solution hosted on Netlify or Github pages
 
+#### Live site
+- https://bee-todo-list.netlify.app/
 
 #### Resources
 - https://ik.imagekit.io/freshman/final-app_dPFLhFnTI.gif
