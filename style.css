@@ -4,6 +4,17 @@
     padding: 0;
 }
 
+:root {
+    --newtask-bg: #f6f6f6;
+    --box-shadow: #2d2b2b4d;
+    --border-bottom-bg: #dcd8d8;
+    --add-edit-btn-bg: #00acee;
+    --add-btn: #f6f6f6;
+    --del-btn: #ca212a;
+    --task-list-bg: #f6f6f6;
+    --icon-color: #ffffff;
+}
+
 body {
     background-color: #00acee;
     font-family: 'Roboto', sans-serif;
@@ -25,9 +36,9 @@ h1 {
 }
 
 .newtask-cont {
-    background-color: #f6f6f6;
+    background-color: var(--newtask-bg);
     border-radius: 6px;
-    box-shadow: 0 4px 6px #2d2b2b4d;
+    box-shadow: 0 4px 6px var(--box-shadow);
     margin-bottom: 38px;
     padding: 10px 16px;
 }
@@ -35,8 +46,8 @@ h1 {
 .newtask-cont input {
     background: none;
     border: none;
-    border-bottom: 2px solid #dcd8d8;
-    font-size: 16px;
+    border-bottom: 2px solid var(--border-bottom-bg);
+    font-size: 1rem;
     height: 40px;
     padding: 8px;
     width: 75%;
@@ -52,13 +63,13 @@ h1 {
 }
 
 #add-button{
-    background: #00acee;
+    background: var(--add-edit-btn-bg);
     border: none;
     border-radius: 6px;
-    color: #f6f6f6;
+    color: var(--add-btn);
     cursor: pointer;
     float: right;
-    font-size: 16px;
+    font-size: 1rem;
     height: 40px;
     outline: none;
     padding: 8px;
@@ -66,10 +77,10 @@ h1 {
 }
 
 #tasks-list {
-    background-color: #f6f6f6;
+    background-color: var(--task-list-bg);
     border: none;
     border-radius: 6px;
-    box-shadow: 0 4px 6px #2d2b2b4d;
+    box-shadow: 0 4px 6px var(--box-shadow);
     list-style: none;
     margin-top: 20px;
     padding: 10px 16px;
@@ -78,8 +89,8 @@ h1 {
 #tasks-list li {
     display: flex;
     align-items: center;
-    border-bottom: 2px solid #dcd8d8;
-    font-size: 16px;
+    border-bottom: 2px solid var(--border-bottom-bg);
+    font-size: 1rem;
     justify-content: space-between;
     margin: 12px 0;
 }
@@ -94,21 +105,35 @@ li .p-text {
 .edit-button, .icon-button {
     border: none;
     border-radius: 3px;
+    cursor: pointer;
     padding: 5px;
 }
 
 .edit-button {
-    background: #00acee;
+    background: var(--add-edit-btn-bg);
     margin-right: 12px;
 }
+
 .icon-button {
-    background: #ca212a;
+    background: var(--del-btn);
 }
 
 .fa-regular {
-    color: white;
-    font-size: 14px;
+    color: var(--icon-color);
+    font-size: 1rem;
 }
 
+/* More harm than good - review */
+/* MEDIA QUERIES */
+/* @media only screen and (max-width: 425px) {
+    .container {
+        min-width: 340px;
+    }
+}
 
+@media only screen and (max-width: 375px) {
+    .container {
+        min-width: 290px;
+    }
+} */
 
