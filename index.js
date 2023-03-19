@@ -1,4 +1,3 @@
-
 // Get the input field and button
 const input = document.getElementById("new-task");
 const addButton = document.getElementById("add-button");
