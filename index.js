@@ -164,6 +164,28 @@ addButton.addEventListener("click", addTask);
 renderTodoList();
 
 
+// Make sentences begin with capital letter
+const newTask = document.getElementById("new-task");
+newTask.addEventListener("input", function () {
+    const text = newTask.value;
+    const sentences = text.split('. ');
+
+    const capitalizedSentences = sentences.map(sentence => {
+        return sentence.charAt(0).toUpperCase() + sentence.slice(1);
+    });
+
+    newTask.value = capitalizedSentences.join('. ');
+});
+
+// const newTask = document.getElementById("new-task");
+// newTask.addEventListener("input", function () {
+//     let text = newTask.value;
+//     text = text.replace(/(^|\. )\s*(\w)/g, function (match, p1, p2) {
+//         return p1 + p2.toUpperCase();
+//     });
+//     newTask.value = text;
+// });
+
 
 
    

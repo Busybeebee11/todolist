@@ -57,6 +57,10 @@ h1 {
     outline: none;
 }
 
+#new-task {
+    text-transform: none;
+}
+
 ::placeholder {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
