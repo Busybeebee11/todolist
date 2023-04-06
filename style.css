@@ -123,10 +123,6 @@ li .p-text {
     background: var(--del-btn);
 }
 
-.fa-floppy-disk {
-    color: var(--save-icon) !important;
-}
-
 .fa-regular {
     color: var(--icon-color);
     font-size: 1rem;
