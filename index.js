@@ -38,13 +38,13 @@ function renderTodoList() {
         // Create an edit button for each item
         const editButton = document.createElement('button');
         editButton.classList.add('edit-button');
-        editButton.innerHTML = '<i class="fa-regular fa-pen-to-square">';
+        editButton.innerHTML = '<i class="fa-regular fa-pen-to-square" title="Edit">';
         editButton.onclick = () => editTask(taskText);
 
         // Create a delete button for each item
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('icon-button');
-        deleteButton.innerHTML = '<i class="fa-regular fa-trash-can">';
+        deleteButton.innerHTML = '<i class="fa-regular fa-trash-can" title="Delete">';
         deleteButton.onclick = () => removeTask(task);
 
         // Append the buttons
@@ -112,8 +112,6 @@ function editTask(taskTextElement) {
         taskTextElement.contentEditable = false;
         taskTextElement.removeEventListener('blur', saveEdit);
         document.removeEventListener('keydown', handleKeydown);
-
-        editButton.style.display = 'none';
     };
 
     const handleKeydown = (event) => {
@@ -123,15 +121,14 @@ function editTask(taskTextElement) {
         }
     };
 
-    const editButton = document.createElement('button');
-    editButton.innerText = "Save";
+    // Change edit button to save button when edit is being carried out
+    const editButton = taskTextElement.parentElement.querySelector('.edit-button');
+    editButton.innerHTML = '<i class="fa-regular fa-floppy-disk" title="Save"></i>';
     editButton.addEventListener('click', saveEdit);
-    editButton.style.display = 'none'; // Hide the button by default
-    taskTextElement.parentElement.appendChild(editButton);
 
     taskTextElement.addEventListener('blur', saveEdit);
     taskTextElement.addEventListener('input', () => {
-        // editButton.style.display = 'inline-block'; // Show the button when text is changed
+        editButton.style.display = 'inline-block'; // Show the button when text is changed
     });
     document.addEventListener('keydown', handleKeydown);
 }
@@ -177,14 +174,6 @@ newTask.addEventListener("input", function () {
     newTask.value = capitalizedSentences.join('. ');
 });
 
-// const newTask = document.getElementById("new-task");
-// newTask.addEventListener("input", function () {
-//     let text = newTask.value;
-//     text = text.replace(/(^|\. )\s*(\w)/g, function (match, p1, p2) {
-//         return p1 + p2.toUpperCase();
-//     });
-//     newTask.value = text;
-// });
 
 
 
