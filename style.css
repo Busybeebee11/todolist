@@ -13,6 +13,7 @@
     --del-btn: #ca212a;
     --task-list-bg: #f6f6f6;
     --icon-color: #ffffff;
+    --save-icon: #ff0000;
 }
 
 body {
@@ -106,7 +107,7 @@ li .p-text {
     word-wrap: break-word;
 }
 
-.edit-button, .icon-button {
+.edit-button, .delete-button {
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -118,8 +119,12 @@ li .p-text {
     margin-right: 12px;
 }
 
-.icon-button {
+.delete-button {
     background: var(--del-btn);
+}
+
+.fa-floppy-disk {
+    color: var(--save-icon) !important;
 }
 
 .fa-regular {

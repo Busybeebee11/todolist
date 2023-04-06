@@ -43,7 +43,7 @@ function renderTodoList() {
 
         // Create a delete button for each item
         const deleteButton = document.createElement('button');
-        deleteButton.classList.add('icon-button');
+        deleteButton.classList.add('delete-button');
         deleteButton.innerHTML = '<i class="fa-regular fa-trash-can" title="Delete">';
         deleteButton.onclick = () => removeTask(task);
 
